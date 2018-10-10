@@ -1124,6 +1124,9 @@ def PC_Modifier():
 	for obj in game.party[0].group_list():
 		listen = obj.skill_level_get(skill_listen)
 		spot = obj.skill_level_get(skill_spot)
+		if anyone( game.party[0].group_list(), "has_item", 12677):
+			# If your party has the spyglass, double the spot mod!
+			spot = spot*2
 		wild = obj.skill_level_get(skill_wilderness_lore)
 		level = spot + listen + wild
 		if level > high:
